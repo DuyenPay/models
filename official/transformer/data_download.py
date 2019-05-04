@@ -42,40 +42,39 @@ from official.utils.flags import core as flags_core
 # that generates a vocabulary set that is closest in size to _TARGET_VOCAB_SIZE.
 _TRAIN_DATA_SOURCES = [
     {
-        "url": "http://data.statmt.org/wmt17/translation-task/"
-               "training-parallel-nc-v12.tgz",
-        "input": "news-commentary-v12.de-en.en",
-        "target": "news-commentary-v12.de-en.de",
-    },
-    {
-        "url": "http://www.statmt.org/wmt13/training-parallel-commoncrawl.tgz",
-        "input": "commoncrawl.de-en.en",
-        "target": "commoncrawl.de-en.de",
-    },
-    {
-        "url": "http://www.statmt.org/wmt13/training-parallel-europarl-v7.tgz",
-        "input": "europarl-v7.de-en.en",
-        "target": "europarl-v7.de-en.de",
-    },
+        "url": "https://drive.google.com/uc?id=1iqM7HT2JMD7PxkMzJ4cDRcXVIOATiXnY&export=download",
+        "input": "source_train.txt",
+        "target": "target_train.txt",
+  }
+#     {
+#         "url": "http://www.statmt.org/wmt13/training-parallel-commoncrawl.tgz",
+#         "input": "commoncrawl.de-en.en",
+#         "target": "commoncrawl.de-en.de",
+#     },
+#     {
+#         "url": "http://www.statmt.org/wmt13/training-parallel-europarl-v7.tgz",
+#         "input": "europarl-v7.de-en.en",
+#         "target": "europarl-v7.de-en.de",
+#     },
 ]
 # Use pre-defined minimum count to generate subtoken vocabulary.
 _TRAIN_DATA_MIN_COUNT = 6
 
 _EVAL_DATA_SOURCES = [
     {
-        "url": "http://data.statmt.org/wmt17/translation-task/dev.tgz",
-        "input": "newstest2013.en",
-        "target": "newstest2013.de",
+        "url": "https://drive.google.com/uc?id=1tMNFyLm7OsSgdRA5aM2vKGavgztxGWO9&export=download",
+        "input": "source_test.txt",
+        "target": "target_test.txt",
     }
 ]
 
 # Vocabulary constants
-_TARGET_VOCAB_SIZE = 32768  # Number of subtokens in the vocabulary list.
+_TARGET_VOCAB_SIZE = 20000  # Number of subtokens in the vocabulary list.
 _TARGET_THRESHOLD = 327  # Accept vocabulary if size is within this threshold
 VOCAB_FILE = "vocab.ende.%d" % _TARGET_VOCAB_SIZE
 
 # Strings to inclue in the generated files.
-_PREFIX = "wmt32k"
+_PREFIX = "icomm"
 _TRAIN_TAG = "train"
 _EVAL_TAG = "dev"  # Following WMT and Tensor2Tensor conventions, in which the
                    # evaluation datasets are tagged as "dev" for development.
